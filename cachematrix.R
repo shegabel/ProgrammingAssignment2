@@ -1,8 +1,8 @@
-## Given an invertible matrix x, create a special matrix object and compute 
-## and return its inverse matrix if first time or return its cached inverse.
+## Given an invertible matrix x, create a special matrix object, compute and return
+## its inverse matrix if it is first time, otherwise return its cached inverse.
 
 
-## makeCacheMatrix: creates a special matrix object with cacheable 
+## makeCacheMatrix: this function creates a special matrix object with cacheable 
 ## inverse, assuming the supplied  x = matrix() is always invertible.
 
 makeCacheMatrix <- function(x = matrix()) {
@@ -36,9 +36,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## cacheSolve: computes the inverse of the special matrix x returned 
-## by makeCacheMatrix above. If the inverse is already computed and 
-## the matrix has not changed, it returns the inverse from the cache.
+## cacheSolve: this function computes the inverse of the special matrix x  
+## returned by makeCacheMatrix above. If the inverse is already computed 
+## and the matrix has not changed, it returns the inverse from the cache.
 
 cacheSolve <- function(x, ...) { 
     
