@@ -11,6 +11,7 @@ makeCacheMatrix <- function(x = matrix()) {
     
     ## set matrix x to new matrix y & inverse inv to NULL 
     ## in the makeCacheMatrix() environment
+    
     set <- function(y) {
         x <<- y 
         inv <<- NULL 
@@ -22,6 +23,7 @@ makeCacheMatrix <- function(x = matrix()) {
     
     ## set inverse inv to the function argument inverse 
     ## in the makeCacheMatrix() environment.
+    
     setinverse <- function(inverse) {
         inv <<- inverse
     }
@@ -43,6 +45,7 @@ cacheSolve <- function(x, ...) {
     inv <- x$getinverse() 
     
     # If inv is not NULL, return the cached inverse inv.
+    
     if(!is.null(inv)) {
         message("getting cached data")
         return(inv) 
@@ -50,6 +53,7 @@ cacheSolve <- function(x, ...) {
     
     ## If execution reaches here, inv was NULL & a new inv of matrix x 
     ## is computed using the built in solve() function of R & returned.
+    
     data <- x$get()
     
     inv <- solve(data, ...) 
@@ -60,7 +64,7 @@ cacheSolve <- function(x, ...) {
     
 }
 
-# ##Test
+##  Test
 # > source("cachematrix.R")
 # > amatrix = makeCacheMatrix(matrix(c(1,2,3,4), nrow=2, ncol=2))
 # > amatrix$get() # Returns original matrix
@@ -83,9 +87,9 @@ cacheSolve <- function(x, ...) {
 # test multiplying a matrix with its inverse gives an identity matrix
 # > amatrix$get() %*% cacheSolve(amatrix)
 # getting cached data
-#       [,1] [,2]
-#[1,]    1    0
-#[2,]    0    1
+#        [,1] [,2]
+# [1,]    1    0
+# [2,]    0    1
 # > amatrix$set(matrix(c(0,5,99,66), nrow=2, ncol=2)) # Modify existing matrix
 # > cacheSolve(amatrix) # Computes, caches, and returns new matrix inverse
 # [,1] [,2]
